@@ -1,2 +1,9 @@
 # matzip-tracker
-A portfolio project: Restaurant stamp tracking app built with React, Express, Prisma and SQLite. Provides restaurant management, visit stamps, and simple badge system.
+
+길을 자주 잃어버리는 사람들을 위해 만든 간단한 위치 확인 웹앱입니다.
+
+버튼 한 번으로 현재 위치를 지도에서 바로 열어볼 수 있게 만드는 것이 목적입니다.
+복잡한 기능보다는, 길을 잃었을 때 빠르게 “내가 지금 어디 있는지” 확인할 수 있는
+실사용 도구를 만드는 데 초점을 두었습니다.
+
+모바일 브라우저에서 사용하며, 홈 화면에 추가하면 앱처럼 사용할 수 있습니다.
