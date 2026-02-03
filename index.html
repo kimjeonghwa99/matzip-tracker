@@ -5,60 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>journey-stamp</title>
   <style>
-    body {
-      margin: 0;
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#9aa7bd;
+      --text:#e7edf7;
+      --line:#20304f;
+      --pill:#1a2642;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: radial-gradient(1200px 600px at 20% 10%, #18244a 0%, var(--bg) 55%);
+      color:var(--text);
     }
-    .container {
-      text-align: center;
-      max-width: 520px;
-      padding: 24px;
+    a{color:inherit}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 56px;}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0 24px; border-bottom:1px solid var(--line);
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg,#6ee7ff,#a78bfa);
+      display:flex; align-items:center; justify-content:center; font-weight:800; color:#0b1220;
     }
-    p {
-      line-height: 1.6;
-      color: #cbd5f5;
+    .title{font-size:18px; font-weight:800; letter-spacing:0.2px}
+    .subtitle{font-size:12px; color:var(--muted); margin-top:2px}
+    .hero{padding:28px 0 10px;}
+    .hero h1{margin:0; font-size:34px; letter-spacing:-0.4px}
+    .hero p{margin:10px 0 0; color:var(--muted); line-height:1.6; max-width:720px}
+    .grid{display:grid; gap:14px}
+    @media(min-width:860px){ .grid.cols2{grid-template-columns:1fr 1fr} .grid.cols3{grid-template-columns:1fr 1fr 1fr} }
+    .card{
+      background:rgba(17,26,46,0.86);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
     }
-    .tag {
-      display: inline-block;
-      margin: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #1e293b;
-      font-size: 0.85rem;
+    .card h2{margin:0 0 10px; font-size:16px}
+    .pills{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{
+      padding:7px 10px; border-radius:999px;
+      background:var(--pill);
+      border:1px solid var(--line);
+      color:#cfe0ff; font-size:12px;
     }
-    footer {
-      margin-top: 32px;
-      font-size: 0.75rem;
-      color: #94a3b8;
+    .row{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+    .muted{color:var(--muted); font-size:13px; line-height:1.6}
+    .scout{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px; border-radius:14px; border:1px solid var(--line);
+      background: rgba(9,14,26,0.35);
     }
+    .badge{
+      min-width:40px; height:40px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; background:#0b1220; border:1px solid var(--line);
+    }
+    .name{font-weight:800}
+    .desc{font-size:12px; color:var(--muted); margin-top:4px; line-height:1.5}
+    .stamp{
+      margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .stamp span{
+      font-size:12px; color:#d7e4ff;
+      padding:6px 10px; border-radius:12px;
+      border:1px dashed #365089; background: rgba(54,80,137,0.12);
+    }
+    footer{margin-top:22px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12px}
+    .kicker{font-size:12px; color:#b9c6dd}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>journey-stamp</h1>
-    <p>
-      선발대가 먼저 다녀온 장소를<br />
-      <strong>스탬프로 기록하는 로컬 탐방 로그</strong>
-    </p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">JS</div>
+        <div>
+          <div class="title">journey-stamp</div>
+          <div class="subtitle">선발대가 남긴 “스탬프 로그”</div>
+        </div>
+      </div>
+      <div class="kicker">🚧 초기 기획 · 정적 랜딩</div>
+    </header>
 
-    <div>
-      <span class="tag">강원도 맛집</span>
-      <span class="tag">대전 서구</span>
-      <span class="tag">애견동반 카페</span>
-    </div>
+    <section class="hero">
+      <h1>리뷰 말고, 기억을 찍는다.</h1>
+      <p>
+        journey-stamp는 지역별 선발대가 먼저 다녀온 장소를
+        <b>스탬프(키워드)로 기록</b>하는 로컬 탐방 프로젝트다.
+        별점 대신 “어땠는지”를 남긴다.
+      </p>
+    </section>
+
+    <section class="grid cols2">
+      <div class="card">
+        <h2>📍 Regions & Themes</h2>
+        <div class="pills">
+          <span class="pill">🏔 강원도 맛집</span>
+          <span class="pill">🐾 대전 서구 · 애견동반 카페</span>
+        </div>
+        <p class="muted" style="margin-top:10px">
+          지역과 조건이 명확할수록 기록은 쌓이고, 나중에 검색/정리하기 쉬워진다.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🏷 Record Rules</h2>
+        <div class="pills">
+          <span class="pill">별점 없음</span>
+          <span class="pill">스탬프 + 키워드</span>
+          <span class="pill">재방문 의사 기록</span>
+          <span class="pill">추천보다 “어땠는지”</span>
+        </div>
+        <p class="muted" style="margin-top:10px">
+          “좋다/별로다”가 아니라, 다음 사람에게 필요한 단서를 남긴다.
+        </p>
+      </div>
+    </section>
+
+    <section style="margin-top:14px" class="card">
+      <h2>🧑‍🚀 Scout Team (선발대)</h2>
+      <p class="muted" style="margin-top:6px">
+        선발대는 각자 다른 기준으로 기록한다. 그래서 스탬프가 ‘취향 지도’가 된다.
+      </p>
+
+      <div class="grid cols3" style="margin-top:12px">
+        <div class="scout">
+          <div class="badge">🏂</div>
+          <div>
+            <div class="name">보더K</div>
+            <div class="desc">강원도 로컬 & 설원 인근 맛집</div>
+            <div class="stamp">
+              <span>#산골맛집</span><span>#든든</span><span>#대기짧음</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scout">
+          <div class="badge">⛷️</div>
+          <div>
+            <div class="name">진아슬로프</div>
+            <div class="desc">스키장 주변 숨은 식당</div>
+            <div class="stamp">
+              <span>#국물</span><span>#추위해결</span><span>#근처</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scout">
+          <div class="badge">🐾</div>
+          <div>
+            <div class="name">소영이</div>
+            <div class="desc">반려견 동반 가능 공간 체크</div>
+            <div class="stamp">
+              <span>#펫동반</span><span>#동선</span><span>#바닥미끄럼</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scout">
+          <div class="badge">☕</div>
+          <div>
+            <div class="name">진브루</div>
+            <div class="desc">커피 & 카페 기록 기준점</div>
+            <div class="stamp">
+              <span>#원두</span><span>#산미</span><span>#좌석</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scout">
+          <div class="badge">📌</div>
+          <div>
+            <div class="name">현로컬</div>
+            <div class="desc">동네 기반 로컬 픽 큐레이터</div>
+            <div class="stamp">
+              <span>#현지인픽</span><span>#재방문</span><span>#조용함</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      🚧 준비 중 · 기록은 계속됩니다
+      다음 단계: 스탬프 타입 정의 → 장소 데이터 구조(Place/Stamp/Scout) → 지역별 리스트 UI
     </footer>
   </div>
 </body>
